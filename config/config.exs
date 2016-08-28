@@ -28,3 +28,7 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
+
+config :excourse, api_key: "CHANGE ME"
+config :excourse, api_username: "CHANGE ME"
+config :excourse, discourse_url: "CHANGE ME" 
