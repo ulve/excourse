@@ -29,6 +29,7 @@ The following config must be set
 ``` elixir
 config :excourse, api_key: "CHANGE ME"
 config :excourse, api_username: "CHANGE ME"
-```
 config :excourse, discourse_url: "CHANGE ME" 
+```
+
 
