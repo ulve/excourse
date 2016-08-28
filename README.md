@@ -1,6 +1,6 @@
 # Excourse
 
-**TODO: Add description**
+A simple [Discourse API](https://www.discourse.org/)
 
 ## Installation
 
@@ -22,6 +22,13 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
     end
     ```
 
-If [published on HexDocs](https://hex.pm/docs/tasks#hex_docs), the docs can
-be found at [https://hexdocs.pm/excourse](https://hexdocs.pm/excourse)
+## Config
+
+The following config must be set
+
+``` elixir
+config :excourse, api_key: "CHANGE ME"
+config :excourse, api_username: "CHANGE ME"
+```
+config :excourse, discourse_url: "CHANGE ME" 
 
