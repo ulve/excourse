@@ -5,6 +5,7 @@ elixir:
 
 otp_release:
   — 19.0
+
 env:
  global:
    - MIX_ENV=test
@@ -15,5 +16,6 @@ before_script:
   - gem install pronto-credo
 
 script:
-  — if [ $PULL_REQUEST_ID != false ]; then pronto run -f github_pr; fi
-  — mix test
+  - if [ $PULL_REQUEST_ID != false ]; then pronto run -f github_pr; fi
+  - mix deps.get
+  - mix test
