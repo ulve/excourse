@@ -4,13 +4,11 @@ A simple [Discourse API](https://www.discourse.org/)
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
-
   1. Add `excourse` to your list of dependencies in `mix.exs`:
 
     ```elixir
     def deps do
-      [{:excourse, "~> 0.1.0"}]
+      [{:excourse, git: "https://github.com/ulve/excourse.git"}]
     end
     ```
 
