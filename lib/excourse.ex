@@ -54,4 +54,32 @@ defmodule Excourse do
 
         HTTPoison.delete url
     end
+
+    ## Topics
+
+    def create_topic(title, raw, category \\ "") do
+        url = "#{@discourse_url}/posts?api_key=#{@api_key}&api_username=#{@api_username}"
+
+        HTTPoison.post url, {:form, [{"title", title}, {"raw", raw}, {"category", category}]}
+    end
+
+    def rename_topic(topic_id, title) do
+        url = "#{@discourse_url}/t/#{topic_id}.json?api_key=#{@api_key}&api_username=#{@api_username}"
+
+        HTTPoison.put url, {:form, [{"topic_id", topic_id}, {"title", title}]}
+    end
+
+    def delete_topic(topic_id) do
+        url = "#{@discourse_url}/t/#{topic_id}.json?api_key=#{@api_key}&api_username=#{@api_username}"
+
+        HTTPoison.delete url
+    end
+
+    def get_topic_posts(topic_id) do
+         url = "#{@discourse_url}/t/#{topic_id}/posts.json?api_key=#{@api_key}&api_username=#{@api_username}"
+
+         {:ok, %HTTPoison.Response{status_code: 200, body: body}} = HTTPoison.get(url)
+
+         body
+    end
 end
