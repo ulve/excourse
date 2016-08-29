@@ -4,7 +4,7 @@ defmodule Excourse.Mixfile do
   def project do
     [app: :excourse,
      version: "0.1.0",
-     elixir: "~> 1.4-dev",
+     elixir: "~> 1.3.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
@@ -28,6 +28,7 @@ defmodule Excourse.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [{:httpoison, "~> 0.9.0"},
-     {:poison, "~> 2.0"}]
+     {:poison, "~> 2.0"},
+     {:credo, "~> 0.4", only: [:dev, :test]}]
   end
 end
