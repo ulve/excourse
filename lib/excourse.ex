@@ -3,6 +3,15 @@ defmodule Excourse do
     @api_username Application.get_env(:excourse, :api_username)
     @discourse_url Application.get_env(:excourse, :discourse_url)
 
+    ## Admin
+     def get_admin() do
+        url = "#{@discourse_url}/admin/dashboard.json?api_key=#{@api_key}&api_username=#{@api_username}"
+        
+        {:ok, %HTTPoison.Response{status_code: 200, body: body}} = HTTPoison.get(url)
+
+        body
+     end
+
     ## Latest
 
     def get_latest() do
