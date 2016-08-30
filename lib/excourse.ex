@@ -6,20 +6,32 @@ defmodule Excourse do
     ## Admin
      def get_admin() do
         url = "#{@discourse_url}/admin/dashboard.json?api_key=#{@api_key}&api_username=#{@api_username}"
-        
-        {:ok, %HTTPoison.Response{status_code: 200, body: body}} = HTTPoison.get(url)
 
-        body
+        case HTTPoison.get(url) do
+          {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
+            {:ok, Poison.decode(body)}
+          {:error, %HTTPoison.Error{reason: reason}} ->
+            {:error, reason}
+          _ ->
+            {:error, :undefined}
+        end
+
      end
 
     ## Latest
 
     def get_latest() do
         url = "#{@discourse_url}/latest.json?api_key=#{@api_key}&api_username=#{@api_username}"
-        
-        {:ok, %HTTPoison.Response{status_code: 200, body: body}} = HTTPoison.get(url)                
 
-        body
+        case HTTPoison.get(url) do
+          {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
+            {:ok, Poison.decode(body)}
+          {:error, %HTTPoison.Error{reason: reason}} ->
+            {:error, reason}
+          _ ->
+            {:error, :undefined}
+        end
+
     end
 
     ## Post
@@ -27,14 +39,14 @@ defmodule Excourse do
     def create_post(topic_id, raw) do
         url = "#{@discourse_url}/posts?api_key=#{@api_key}&api_username=#{@api_username}"
 
-        HTTPoison.post url, {:form, [{"topic_id", topic_id}, {"raw", raw}]}                                                                                                                    
+        HTTPoison.post url, {:form, [{"topic_id", topic_id}, {"raw", raw}]}
     end
 
     def get_post(post_id) do
         url = "#{@discourse_url}/posts/#{post_id}.json?api_key=#{@api_key}&api_username=#{@api_username}"
-        {:ok, %HTTPoison.Response{status_code: 200, body: body}} = HTTPoison.get(url)                
+        {:ok, %HTTPoison.Response{status_code: 200, body: body}} = HTTPoison.get(url)
 
-        body 
+        body
     end
 
     def wikify_post(post_id) do
@@ -44,10 +56,10 @@ defmodule Excourse do
     end
 
     def edit_post(post_id, raw) do
-        url = "#{@discourse_url}/posts/#{post_id}?api_key=#{@api_key}&api_username=#{@api_username}"        
-        
-        HTTPoison.put url, {:form, [{"post[raw]", raw}]}          
-    end    
+        url = "#{@discourse_url}/posts/#{post_id}?api_key=#{@api_key}&api_username=#{@api_username}"
+
+        HTTPoison.put url, {:form, [{"post[raw]", raw}]}
+    end
 
     def delete_post(post_id) do
         url = "#{@discourse_url}/posts/#{post_id}?api_key=#{@api_key}&api_username=#{@api_username}"
@@ -78,8 +90,13 @@ defmodule Excourse do
     def get_topic_posts(topic_id) do
          url = "#{@discourse_url}/t/#{topic_id}/posts.json?api_key=#{@api_key}&api_username=#{@api_username}"
 
-         {:ok, %HTTPoison.Response{status_code: 200, body: body}} = HTTPoison.get(url)
-
-         body
+        case HTTPoison.get(url) do
+          {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
+            {:ok, Poison.decode(body)}
+          {:error, %HTTPoison.Error{reason: reason}} ->
+            {:error, reason}
+          _ ->
+            {:error, :undefined}
+        end
     end
 end
