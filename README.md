@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ulve/excourse.svg?branch=master)](https://travis-ci.org/ulve/excourse)
 # Excourse
 
 A simple [Discourse API](https://www.discourse.org/)
