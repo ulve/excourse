@@ -1,6 +1,6 @@
 [![Build Status Travis](https://travis-ci.org/ulve/excourse.svg?branch=master)](https://travis-ci.org/ulve/excourse)
 [![Build Status Circle](https://circleci.com/gh/ulve/excourse.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/ulve/excourse)
-
+[![Inline docs](http://inch-ci.org/github/ulve/excourse.svg?branch=master)](http://inch-ci.org/github/ulve/excourse)
 
 # Excourse
 
