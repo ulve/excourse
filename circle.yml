@@ -6,3 +6,6 @@ dependencies:
     - ~/.mix
     - _build
     - deps
+test:
+  override:
+    - scripts/ci/tests.sh
