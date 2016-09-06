@@ -29,6 +29,7 @@ defmodule Excourse.Mixfile do
   defp deps do
     [{:httpoison, "~> 0.9.0"},
      {:poison, "~> 2.0"},
-     {:credo, "~> 0.4", only: [:dev, :test]}]
+     {:credo, "~> 0.4", only: [:dev, :test]},
+     {:inch_ex, only: :docs}]
   end
 end
