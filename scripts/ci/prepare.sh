@@ -23,7 +23,7 @@ cd $INSTALL_PATH
 
 # Install erlang
 if [ ! -e $ERLANG_PATH/bin/erl ]; then
-  curl -L -O http://www.erlang.org/download/otp_src_$ERLANG_VERSION.tar.gz
+  curl -s -L -O http://www.erlang.org/download/otp_src_$ERLANG_VERSION.tar.gz
   tar xzf otp_src_$ERLANG_VERSION.tar.gz
   cd $ERLANG_PATH
   ./configure --enable-smp-support \
@@ -65,4 +65,3 @@ fi
 export MIX_ENV="test"
 cd $HOME/$CIRCLE_PROJECT_REPONAME
 mix do deps.get, deps.compile, compile
-Raw
