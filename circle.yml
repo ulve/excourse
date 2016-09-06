@@ -8,4 +8,4 @@ dependencies:
     - deps
 test:
   override:
-    - scripts/ci/tests.sh
+    - scripts/ci/test.sh
